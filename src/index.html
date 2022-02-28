@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>To-Do</title> 
+
+    <style>
+        @keyframes rotate {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes dash {
+            0% {
+                stroke-dasharray: 1, 200;
+                stroke-dashoffset: 0;
+            }
+            50% {
+                stroke-dasharray: 89, 200;
+                stroke-dashoffset: -35px;
+            }
+            100% {
+                stroke-dasharray: 89, 200;
+                stroke-dashoffset: -124px;
+            }
+        }
+        @keyframes color {
+            100%,
+            0% {
+                stroke: #d62d20;
+            }
+            40% {
+                stroke: #0057e7;
+            }
+            66% {
+                stroke: #008744;
+            }
+            80%,
+            90% {
+                stroke: #ffa700;
+            }
+        } 
+        @keyframes percentageColor {
+            100%,
+            0% {
+                color: #d62d20;
+            }
+            40% {
+                color: #0057e7;
+            }
+            66% {
+                color: #008744;
+            }
+            80%,
+            90% {
+                color: #ffa700;
+            }
+        }
+
+        div#progressbar{
+            width: 6vw;
+            position: fixed;
+            left: calc(50% - 3vw);
+            top: calc(50% - 3vw);
+        }
+
+        div#percentage-loader{
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            font-size: 18px; 
+            animation: percentageColor 6s ease-in-out infinite;
+            font-weight: bold;
+        }
+
+        div#progressbar::before{
+            content: "";
+            display: block;
+            padding-top: 100%;
+        }
+
+        svg#progressbar-svg{
+            animation: rotate 2s linear infinite;
+            height: 100%;
+            -webkit-transform-origin: center center;
+            transform-origin: center center;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        circle#progressbar-circle{
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+            stroke-linecap: round;
+            stroke-width: 4;
+            -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+            animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+            fill: none;
+            stroke-miterlimit: "10";
+        }
+    </style>
+</head>
+
+<body> 
+    <div id="app" role='main'> 
+        <div id="app" role='main'>
+            <div id="progressbar">
+                <svg id="progressbar-svg" viewBox="25 25 50 50">
+                    <circle
+                        id="progressbar-circle"
+                        cx="50"
+                        cy="50"
+                        r="20"
+                    />
+                </svg>
+            </div>
+        <div id="percentage-loader">0%</div>
+    </div>
+</body>
+
+</html>

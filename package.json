@@ -1,0 +1,81 @@
+{
+  "name": "task",
+  "version": "1.0.0",
+  "description": "task",
+  "main": "index",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot --history-api-fallback",
+    "build": "webpack --mode production"
+  },
+  "jest": {
+    "setupFiles": [
+      "./jest/throwOnConsoleError.js",
+      "./jest/windowMock.js"
+    ],
+    "setupFilesAfterEnv": [
+      "./jest/reactTestingLibrary.js"
+    ],
+    "globals": {},
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./src/js/components/**/*.jsx"
+    ],
+    "coverageDirectory": "./coverage/",
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "output": "reports/junit.xml"
+        }
+      ]
+    ]
+  },
+  "jestSonar": {
+    "reportPath": "coverage",
+    "reportFile": "test-report.xml",
+    "indent": 4
+  },
+  "author": "",
+  "license": "MIT",
+  "eslint-import-resolver-babel-module": "^5.1.2",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^25.1.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-polyfill": "^6.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-twig": "^0.0.3",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-plugin-compat": "^2.1.0",
+    "eslint-plugin-graphql": "^2.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.11.1",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "jszip": "^3.2.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.2.0",
+    "react-test-renderer": "^16.12.0",
+    "redux": "^4.0.5",
+    "styled-components": "^4.4.1",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "dependencies": {
+    "@fseehawer/react-circular-slider": "^2.3.9",
+    "react-calendar": "^3.7.0"
+  }
+}
